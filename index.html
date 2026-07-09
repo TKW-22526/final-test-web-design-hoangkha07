@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Hotel - Quản lý khách sạn</title>
+
+    <link rel="stylesheet" href="css/trangindex.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Aurora Hotel</h2>
+
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Sơ đồ phòng</a></li>
+            <li><a href="html/khach-le.html"><i class="fa-solid fa-user"></i> Khách lẻ</a></li>
+            <li><a href="html/khach-doan.html"><i class="fa-solid fa-users"></i> Khách đoàn</a></li>
+            <li><a href="html/le-tan.html"><i class="fa-solid fa-bell-concierge"></i> Lễ tân</a></li>
+            <li><a href="html/buong-phong.html"><i class="fa-solid fa-bed"></i> Buồng phòng</a></li>
+            <li><a href="html/thong-ke.html"><i class="fa-solid fa-chart-column"></i> Thống kê</a></li>
+            <li><a href="html/bao-cao.html"><i class="fa-solid fa-file-lines"></i> Báo cáo</a></li>
+        </ul>
+    </aside>
+
+    <!-- Nội dung -->
+    <main>
+
+        <header>
+            <h2>Sơ đồ phòng</h2>
+
+           <input
+                 type="text"
+                 id="searchRoom"
+                 placeholder="Tìm số phòng hoặc trạng thái...">
+        </header>
+
+        <!-- Bộ lọc -->
+        <section class="trang-thai">
+
+         <button class="all active" data-status="all">Tất cả</button>
+
+                <button class="green" data-status="empty">
+                    Trống
+                </button>
+
+                <button class="red" data-status="using">
+                    Đang ở
+                </button>
+
+                <button class="orange" data-status="cleaning">
+                    Đang dọn
+                </button>
+
+                <button class="blue" data-status="booked">
+                    Đã đặt
+                </button>
+
+                <button class="grey" data-status="repair">
+                    Đang sửa
+                </button>
+
+        </section>
+<!-- Danh sách phòng -->
+<section class="rooms">
+
+    <div class="room using" data-floor="1">
+        <h3>101</h3>
+        <p>Đang ở</p>
+    </div>
+
+    <div class="room repair" data-floor="1">
+        <h3>102</h3>
+        <p>Đang sửa</p>
+    </div>
+
+    <div class="room empty" data-floor="1">
+        <h3>103</h3>
+        <p>Trống</p>
+    </div>
+
+    <div class="room booked" data-floor="1">
+        <h3>104</h3>
+        <p>Đã đặt</p>
+    </div>
+
+    <div class="room cleaning" data-floor="1">
+        <h3>105</h3>
+        <p>Đang dọn</p>
+    </div>
+
+    <div class="room booked" data-floor="2">
+        <h3>201</h3>
+        <p>Đã đặt</p>
+    </div>
+
+    <div class="room empty" data-floor="2">
+        <h3>202</h3>
+        <p>Trống</p>
+    </div>
+
+    <div class="room cleaning" data-floor="2">
+        <h3>203</h3>
+        <p>Đang dọn</p>
+    </div>
+
+    <div class="room repair" data-floor="2">
+        <h3>204</h3>
+        <p>Đang sửa</p>
+    </div>
+
+    <div class="room using" data-floor="2">
+        <h3>205</h3>
+        <p>Đang ở</p>
+    </div>
+
+    <div class="room repair" data-floor="3">
+        <h3>301</h3>
+        <p>Đang sửa</p>
+    </div>
+
+    <div class="room using" data-floor="3">
+        <h3>302</h3>
+        <p>Đang ở</p>
+    </div>
+
+    <div class="room booked" data-floor="3">
+        <h3>303</h3>
+        <p>Đã đặt</p>
+    </div>
+
+    <div class="room empty" data-floor="3">
+        <h3>304</h3>
+        <p>Trống</p>
+    </div>
+
+    <div class="room cleaning" data-floor="3">
+        <h3>305</h3>
+        <p>Đang dọn</p>
+    </div>
+
+    <div class="room empty" data-floor="4">
+        <h3>401</h3>
+        <p>Trống</p>
+    </div>
+
+    <div class="room cleaning" data-floor="4">
+        <h3>402</h3>
+        <p>Đang dọn</p>
+    </div>
+
+    <div class="room using" data-floor="4">
+        <h3>403</h3>
+        <p>Đang ở</p>
+    </div>
+
+    <div class="room booked" data-floor="4">
+        <h3>404</h3>
+        <p>Đã đặt</p>
+    </div>
+
+    <div class="room repair" data-floor="4">
+        <h3>405</h3>
+        <p>Đang sửa</p>
+    </div>
+
+    <div class="room cleaning" data-floor="5">
+        <h3>501</h3>
+        <p>Đang dọn</p>
+    </div>
+
+    <div class="room booked" data-floor="5">
+        <h3>502</h3>
+        <p>Đã đặt</p>
+    </div>
+
+    <div class="room empty" data-floor="5">
+        <h3>503</h3>
+        <p>Trống</p>
+    </div>
+
+    <div class="room using" data-floor="5">
+        <h3>504</h3>
+        <p>Đang ở</p>
+    </div>
+
+</section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

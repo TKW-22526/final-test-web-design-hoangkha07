@@ -1,0 +1,264 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    background:#eef2f7;
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    background:#2d3e50;
+    color:white;
+}
+
+.sidebar h2{
+    text-align:center;
+    padding:25px 10px;
+    background:#1d2b3a;
+    font-size:26px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar ul li a{
+    display:block;
+    padding:18px;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.sidebar ul li a:hover{
+    background:#3498db;
+}
+
+
+
+/* MAIN */
+
+main{
+    flex:1;
+    padding:30px;
+}
+
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+header h2{
+    color:#243b55;
+    font-size:30px;
+}
+
+header input{
+    width:330px;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+
+
+/* BUTTON */
+
+.trang-thai{
+    margin-bottom:25px;
+}
+
+.trang-thai button{
+    padding:12px 22px;
+    border:none;
+    border-radius:6px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-right:10px;
+    transition:.3s;
+}
+
+.trang-thai button:hover{
+    transform:translateY(-3px);
+}
+
+
+.all{
+    background:#111827;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.red{
+    background:#ef4444;
+}
+
+.orange{
+    background:#f59e0b;
+}
+
+.blue{
+    background:#3498db;
+}
+
+.grey{
+    background:#7f8c8d;
+}
+
+
+
+/* DANH SÁCH PHÒNG */
+
+.rooms{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(6,1fr);
+
+    gap:25px;
+
+}
+
+
+
+/* Ô PHÒNG */
+
+.room{
+
+    height:130px;
+
+    border-radius:12px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+
+.room:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* SỐ PHÒNG */
+
+.room h3{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* TRẠNG THÁI */
+
+.room p{
+
+    font-size:20px;
+
+}
+
+
+
+/* MÀU PHÒNG */
+
+
+.empty{
+    background:#2ecc71;
+}
+
+
+.booked{
+    background:#3498db;
+}
+
+
+.using{
+    background:#e74c3c;
+}
+
+
+.cleaning{
+    background:#f39c12;
+}
+
+
+.repair{
+    background:#7f8c8d;
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    .rooms{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    body{
+        flex-direction:column;
+    }
+
+
+    .sidebar{
+        width:100%;
+    }
+
+
+    .rooms{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
