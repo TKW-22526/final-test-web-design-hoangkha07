@@ -1,5 +1,5 @@
 // =========================
-// Aurora Hotel - Khách lẻ
+// Aurora Hotel - Khách hàng
 // =========================
 
 const tbody = document.getElementById("tableKhach");
