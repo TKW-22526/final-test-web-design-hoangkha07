@@ -79,10 +79,27 @@ rooms.forEach(room => {
         const number = room.querySelector("h3").textContent;
         const status = room.querySelector("p").textContent;
 
-        alert(
-            "Số phòng: " + number +
-            "\nTrạng thái: " + status
-        );
+        const khach = danhSachKhach.find(item => item.phong === number);
+
+        if (khach) {
+
+            alert(
+                "Số phòng: " + number +
+                "\nTrạng thái: " + status +
+                "\n\nHọ tên: " + khach.ten +
+                "\nCCCD: " + khach.cccd +
+                "\nSĐT: " + khach.sdt
+            );
+
+        } else {
+
+            alert(
+                "Số phòng: " + number +
+                "\nTrạng thái: " + status +
+                "\n\nChưa có khách."
+            );
+
+        }
 
     });
 
