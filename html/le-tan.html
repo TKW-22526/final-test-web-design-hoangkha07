@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Lễ tân Aurora Hotel</title>
+
+<link rel="stylesheet" href="../css/trangindex.css">
+
+</head>
+
+
+<body>
+
+
+<aside class="sidebar">
+
+<h2>Aurora Hotel</h2>
+
+<ul>
+
+<li>Lễ tân</li>
+
+<li>Khách hàng</li>
+
+<li>Dịch vụ</li>
+
+</ul>
+
+</aside>
+
+
+
+<main>
+
+
+<h1>
+Quản lý lễ tân
+</h1>
+
+
+
+<div class="cards">
+
+<div class="card">
+<h3>Tổng khách</h3>
+<p id="tongKhach">0</p>
+</div>
+
+
+<div class="card">
+<h3>Đang ở</h3>
+<p id="dangO">0</p>
+</div>
+
+
+<div class="card">
+<h3>Đã trả</h3>
+<p id="daTra">0</p>
+</div>
+
+
+</div>
+
+
+
+
+<h2>Thêm khách</h2>
+
+
+<input id="ten" placeholder="Tên khách">
+
+
+<select id="phong"></select>
+
+
+<input id="ngayNhan" type="date">
+
+
+<input id="ngayTra" type="date">
+
+
+<button onclick="themKhach()">
+Thêm khách
+</button>
+
+
+
+
+<h2>Danh sách khách</h2>
+
+
+<table border="1">
+
+
+<thead>
+
+<tr>
+
+<th>Mã</th>
+
+<th>Tên</th>
+
+<th>Phòng</th>
+
+<th>Nhận</th>
+
+<th>Trả</th>
+
+<th>Trạng thái</th>
+
+<th>Dịch vụ</th>
+
+<th>Xử lý</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="bangLeTan"></tbody>
+
+
+
+</table>
+
+
+
+</main>
+
+
+
+<script src="../js/data-letan.js"></script>
+
+<script src="../js/le-tan.js"></script>
+
+
+</body>
+
+</html>

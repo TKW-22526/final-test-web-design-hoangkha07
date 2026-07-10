@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý dịch vụ - Aurora Hotel</title>
+
+    <link rel="stylesheet" href="../css/trangindex.css">
+    <link rel="stylesheet" href="../css/khach-hang.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>Aurora Hotel</h2>
+
+        <ul>
+            <li><a href="../index.html">
+                <i class="fa-solid fa-house"></i> Sơ đồ phòng
+            </a></li>
+
+            <li><a href="khach-hang.html">
+                <i class="fa-solid fa-user"></i> Khách hàng
+            </a></li>
+
+            <li><a href="dich-vu.html" class="active">
+                <i class="fa-solid fa-cart-shopping"></i> Dịch vụ
+            </a></li>
+
+            <li><a href="le-tan.html">
+                <i class="fa-solid fa-bell-concierge"></i> Lễ tân
+            </a></li>
+
+            <li><a href="buong-phong.html">
+                <i class="fa-solid fa-bed"></i> Buồng phòng
+            </a></li>
+
+            <li><a href="thong-ke.html">
+                <i class="fa-solid fa-chart-column"></i> Thống kê
+            </a></li>
+
+            <li><a href="bao-cao.html">
+                <i class="fa-solid fa-file-lines"></i> Báo cáo
+            </a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Nội dung -->
+    <main>
+
+        <header>
+
+            <h2>Quản lý dịch vụ</h2>
+
+            <input
+                type="text"
+                id="searchDV"
+                placeholder="Tìm tên dịch vụ...">
+
+        </header>
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Mã DV</th>
+                        <th>Tên dịch vụ</th>
+                        <th>Đơn giá</th>
+                        <th>Đơn vị</th>
+                        <th>Khách sử dụng</th>
+                        <th>Thao tác</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tableDichVu">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/dich-vu.js"></script>
+
+</body>
+</html>
