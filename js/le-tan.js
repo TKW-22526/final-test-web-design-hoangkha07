@@ -1,37 +1,39 @@
-// Aurora Hotel - JS LỄ TÂN
+// =====================================
+// Aurora Hotel - LỄ TÂN
+// =====================================
 
-
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
     hienThiPhong();
-
     hienThiKhach();
-
     thongKe();
 
 });
 
-
-
-// hiện phòng trống
+// =====================================
+// HIỂN THỊ PHÒNG TRỐNG
+// =====================================
 
 function hienThiPhong(){
 
-    let select=document.getElementById("phong");
+    // Luôn cập nhật trạng thái phòng trước
+    capNhatPhong();
 
-    select.innerHTML=
-    `<option value="">Chọn phòng</option>`;
+    const select = document.getElementById("phong");
 
+    if(!select) return;
 
-    danhSachPhong.forEach(p=>{
+    select.innerHTML =
+    `<option value="">-- Chọn phòng trống --</option>`;
 
-        if(p.trangThai=="Trống"){
+    danhSachPhong.forEach(phong=>{
 
-            select.innerHTML+=
-            `
-            <option value="${p.so}">
-            Phòng ${p.so}
-            </option>
+        if(phong.trangThai === "Trống"){
+
+            select.innerHTML += `
+                <option value="${phong.so}">
+                    Phòng ${phong.so}
+                </option>
             `;
 
         }
@@ -40,194 +42,214 @@ function hienThiPhong(){
 
 }
 
-
-
-// thêm khách
+// =====================================
+// THÊM KHÁCH
+// =====================================
 
 function themKhach(){
 
+    const ten = document.getElementById("ten").value.trim();
+    const cccd = document.getElementById("cccd").value.trim();
+    const sdt = document.getElementById("sdt").value.trim();
+    const phong = document.getElementById("phong").value;
+    const ngayNhan = document.getElementById("ngayNhan").value;
+    const ngayTra = document.getElementById("ngayTra").value;
 
-    let ten=document.getElementById("ten").value;
-    let phong=document.getElementById("phong").value;
-    let nhan=document.getElementById("ngayNhan").value;
-    let tra=document.getElementById("ngayTra").value;
+    if(
+        ten=="" ||
+        cccd=="" ||
+        sdt=="" ||
+        phong=="" ||
+        ngayNhan==""
+    ){
 
-
-
-    if(ten=="" || phong==""){
-
-        alert("Nhập đầy đủ");
-
+        alert("Vui lòng nhập đầy đủ thông tin.");
         return;
 
     }
 
+    danhSachKhach.push({
 
+        ma: taoMaKhach(),
 
-    let khach={
+        ten: ten,
 
-        ma:taoMaKhach(),
+        cccd: cccd,
 
-        ten:ten,
+        sdt: sdt,
 
-        phong:phong,
+        phong: phong,
 
-        ngayNhan:nhan,
+        ngayNhan: ngayNhan,
 
-        ngayTra:tra,
+        ngayTra: ngayTra,
 
-        trangThai:"Đang ở",
+        trangThai: "Đã đặt",
 
-        dichVu:[]
+        dichVu: [],
 
-    };
+        moiThem: true
 
+    });
 
-    danhSachKhach.push(khach);
+    capNhatPhong();
 
+    luuDuLieu();
 
-
-    let p=danhSachPhong.find(
-        x=>x.so==phong
-    );
-
-
-    if(p){
-
-        p.trangThai="Đang sử dụng";
-
-    }
-
-
-
-    hienThiKhach();
+    document.getElementById("ten").value="";
+    document.getElementById("cccd").value="";
+    document.getElementById("sdt").value="";
+    document.getElementById("phong").value="";
+    document.getElementById("ngayNhan").value="";
+    document.getElementById("ngayTra").value="";
 
     hienThiPhong();
-
+    hienThiKhach();
     thongKe();
-
 
 }
 
-
-
-
-// hiển thị khách
-
+// =====================================
+// HIỂN THỊ KHÁCH
+// =====================================
 
 function hienThiKhach(){
 
+    const bang = document.getElementById("bangLeTan");
 
-    let bang=document.getElementById("bangLeTan");
-
+    if(!bang) return;
 
     bang.innerHTML="";
 
-
-
     danhSachKhach.forEach((kh,index)=>{
 
-
-        bang.innerHTML+=`
+        bang.innerHTML += `
 
         <tr>
 
-        <td>${kh.ma}</td>
+            <td>${kh.ma}</td>
 
-        <td>${kh.ten}</td>
+            <td>${kh.ten}</td>
 
-        <td>${kh.phong}</td>
+            <td>${kh.cccd || "-"}</td>
 
-        <td>${kh.ngayNhan}</td>
+            <td>${kh.sdt || "-"}</td>
 
-        <td>${kh.ngayTra}</td>
+            <td>${kh.phong}</td>
 
-        <td>${kh.trangThai}</td>
+            <td>${kh.ngayNhan}</td>
 
-        <td>
-        ${kh.dichVu.join(",")}
-        </td>
+            <td>${kh.ngayTra || "-"}</td>
 
+            <td>
+                <span class="status">
+                    ${kh.trangThai}
+                </span>
+            </td>
 
-        <td>
+            <td>
+                ${
+                    kh.dichVu.length
+                    ? kh.dichVu.join(", ")
+                    : "Không"
+                }
+            </td>
 
-        <button onclick="traPhong(${index})">
-        Trả phòng
-        </button>
+            <td>
+                <button class="btn tra" onclick="traPhong(${index})">
+                    Trả
+                </button>
 
-        </td>
+                <button class="btn xoa"
+                onclick="xoaKhachLeTan(${index})">
+                Xóa
+                </button>
 
+            </td>
 
         </tr>
 
         `;
 
-
     });
 
-
 }
 
+// =====================================
+// NHẬN PHÒNG
+// =====================================
 
+function nhanPhong(index){
 
-// trả phòng
+    danhSachKhach[index].trangThai="Đang ở";
 
+    capNhatPhong();
 
-function traPhong(i){
-
-
-    danhSachKhach[i].trangThai="Đã trả phòng";
-
-
-    let p=danhSachPhong.find(
-        x=>x.so==danhSachKhach[i].phong
-    );
-
-
-    if(p){
-
-        p.trangThai="Trống";
-
-    }
-
-
+    luuDuLieu();
 
     hienThiPhong();
-
     hienThiKhach();
-
     thongKe();
-
 
 }
 
+// =====================================
+// TRẢ PHÒNG
+// =====================================
 
+function traPhong(index){
 
+    danhSachKhach[index].trangThai="Đã trả phòng";
 
-// thống kê
+    capNhatPhong();
 
+    luuDuLieu();
+
+    hienThiPhong();
+    hienThiKhach();
+    thongKe();
+
+}
+
+// =====================================
+// XÓA KHÁCH
+// =====================================
+
+function xoaKhachLeTan(index){
+
+    if(!confirm("Bạn muốn xóa khách này?")) return;
+
+    thungRacKhach.push(danhSachKhach[index]);
+
+    danhSachKhach.splice(index,1);
+
+    capNhatPhong();
+
+    luuDuLieu();
+
+    hienThiPhong();
+    hienThiKhach();
+    thongKe();
+
+}
+
+// =====================================
+// THỐNG KÊ
+// =====================================
 
 function thongKe(){
 
-
-    document.getElementById("tongKhach").innerHTML=
+    document.getElementById("tongKhach").textContent =
     danhSachKhach.length;
 
-
-
-    document.getElementById("dangO").innerHTML=
-
+    document.getElementById("dangO").textContent =
     danhSachKhach.filter(
-        x=>x.trangThai=="Đang ở"
+        kh=>kh.trangThai=="Đang ở"
     ).length;
 
-
-
-    document.getElementById("daTra").innerHTML=
-
+    document.getElementById("daTra").textContent =
     danhSachKhach.filter(
-        x=>x.trangThai=="Đã trả phòng"
+        kh=>kh.trangThai=="Đã trả phòng"
     ).length;
-
 
 }

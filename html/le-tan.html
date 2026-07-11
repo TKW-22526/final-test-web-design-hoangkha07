@@ -2,141 +2,197 @@
 <html lang="vi">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý lễ tân - Aurora Hotel</title>
 
-<meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/trangindex.css">
+    
 
-<title>Lễ tân Aurora Hotel</title>
-
-<link rel="stylesheet" href="../css/trangindex.css">
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 
 <body>
 
+    <!-- Sidebar -->
+    <aside class="sidebar">
 
-<aside class="sidebar">
+        <h2>Aurora Hotel</h2>
 
-<h2>Aurora Hotel</h2>
+        <ul>
+            <li>
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Sơ đồ phòng
+                </a>
+            </li>
 
-<ul>
+            <li>
+                <a href="khach-hang.html">
+                    <i class="fa-solid fa-user"></i>
+                    Khách hàng
+                </a>
+            </li>
 
-<li>Lễ tân</li>
+            <li>
+                <a href="dich-vu.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Dịch vụ
+                </a>
+            </li>
 
-<li>Khách hàng</li>
+            <li>
+                <a href="le-tan.html" class="active">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                    Lễ tân
+                </a>
+            </li>
 
-<li>Dịch vụ</li>
+            <li>
+                <a href="buong-phong.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Buồng phòng
+                </a>
+            </li>
 
-</ul>
+            <li>
+                <a href="thong-ke.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Thống kê
+                </a>
+            </li>
 
-</aside>
+            <li>
+                <a href="bao-cao.html">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Báo cáo
+                </a>
+            </li>
+        </ul>
 
+    </aside>
 
+    <!-- Nội dung -->
+    <main>
 
-<main>
+        <header>
 
+            <h2>
+                <i class="fa-solid fa-bell-concierge"></i>
+                Quản lý lễ tân
+            </h2>
 
-<h1>
-Quản lý lễ tân
-</h1>
+            <input
+                type="text"
+                id="searchKhach"
+                placeholder="Tìm theo tên hoặc số phòng...">
 
+        </header>
 
+        <!-- Thống kê -->
+        <section class="cards">
 
-<div class="cards">
+            <div class="card">
+                <h3>Tổng khách</h3>
+                <p id="tongKhach">0</p>
+            </div>
 
-<div class="card">
-<h3>Tổng khách</h3>
-<p id="tongKhach">0</p>
-</div>
+            <div class="card">
+                <h3>Đang ở</h3>
+                <p id="dangO">0</p>
+            </div>
 
+            <div class="card">
+                <h3>Đã trả phòng</h3>
+                <p id="daTra">0</p>
+            </div>
 
-<div class="card">
-<h3>Đang ở</h3>
-<p id="dangO">0</p>
-</div>
+        </section>
 
+        <section class="table-container">
 
-<div class="card">
-<h3>Đã trả</h3>
-<p id="daTra">0</p>
-</div>
+            <h2>
+                <i class="fa-solid fa-user-plus"></i>
+                Thêm khách hàng
+            </h2>
 
+            <div class="form-grid">
 
-</div>
+              <input id="ten" type="text" placeholder="Họ và tên">
 
+<input id="cccd" type="text" placeholder="CCCD">
 
-
-
-<h2>Thêm khách</h2>
-
-
-<input id="ten" placeholder="Tên khách">
-
+<input id="sdt" type="text" placeholder="Số điện thoại">
 
 <select id="phong"></select>
 
-
 <input id="ngayNhan" type="date">
 
-
 <input id="ngayTra" type="date">
+            </div>
 
+            <br>
+            
 
-<button onclick="themKhach()">
+            <h3>Dịch vụ</h3>
+
+            <div id="dichVu">
+
+                <label><input type="checkbox" value="DV001"> Ăn sáng</label>
+                <label><input type="checkbox" value="DV002"> Giặt ủi</label>
+                <label><input type="checkbox" value="DV003"> Spa</label>
+                <label><input type="checkbox" value="DV004"> Đưa đón sân bay</label>
+                <label><input type="checkbox" value="DV005"> Thuê xe</label>
+                <label><input type="checkbox" value="DV006"> Hồ bơi</label>
+                <label><input type="checkbox" value="DV007"> Gym</label>
+
+            </div>
+
+            <br>
+
+   <!-- Thêm khách -->
+         <button class="them" onclick="themKhach()">
+<i class="fa-solid fa-plus"></i>
 Thêm khách
 </button>
+        </section>
 
+        <!-- Danh sách khách -->
+        <section class="table-container">
 
+            <h2>
+                <i class="fa-solid fa-list"></i>
+                Danh sách khách
+            </h2>
 
+            <table>
 
-<h2>Danh sách khách</h2>
+                <thead>
+                    <tr>
+                        <th>Mã KH</th>
+                        <th>Họ tên</th>
+                        <th>CCCD</th>
+                        <th>SĐT</th>
+                        <th>Phòng</th>
+                        <th>Ngày nhận</th>
+                        <th>Ngày trả</th>
+                        <th>Trạng thái</th>
+                        <th>Dịch vụ</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
 
+                <tbody id="bangLeTan"></tbody>
 
-<table border="1">
+            </table>
 
+        </section>
 
-<thead>
+    </main>
 
-<tr>
-
-<th>Mã</th>
-
-<th>Tên</th>
-
-<th>Phòng</th>
-
-<th>Nhận</th>
-
-<th>Trả</th>
-
-<th>Trạng thái</th>
-
-<th>Dịch vụ</th>
-
-<th>Xử lý</th>
-
-</tr>
-
-</thead>
-
-
-
-<tbody id="bangLeTan"></tbody>
-
-
-
-</table>
-
-
-
-</main>
-
-
-
-<script src="../js/data-letan.js"></script>
-
-<script src="../js/le-tan.js"></script>
-
+    <script src="../js/data.js"></script>
+    <script src="../js/le-tan.js"></script>
 
 </body>
 
