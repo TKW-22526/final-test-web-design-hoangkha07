@@ -2,15 +2,17 @@
 <html lang="vi">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý lễ tân - Aurora Hotel</title>
+
+    <title>Aurora Hotel - Lễ tân</title>
 
     <link rel="stylesheet" href="../css/trangindex.css">
-    
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -21,6 +23,7 @@
         <h2>Aurora Hotel</h2>
 
         <ul>
+
             <li>
                 <a href="../index.html">
                     <i class="fa-solid fa-house"></i>
@@ -69,9 +72,11 @@
                     Báo cáo
                 </a>
             </li>
+
         </ul>
 
     </aside>
+
 
     <!-- Nội dung -->
     <main>
@@ -83,12 +88,8 @@
                 Quản lý lễ tân
             </h2>
 
-            <input
-                type="text"
-                id="searchKhach"
-                placeholder="Tìm theo tên hoặc số phòng...">
-
         </header>
+
 
         <!-- Thống kê -->
         <section class="cards">
@@ -110,6 +111,8 @@
 
         </section>
 
+
+        <!-- Thêm khách -->
         <section class="table-container">
 
             <h2>
@@ -119,44 +122,95 @@
 
             <div class="form-grid">
 
-              <input id="ten" type="text" placeholder="Họ và tên">
+                <input
+                    id="ten"
+                    type="text"
+                    placeholder="Họ và tên">
 
-<input id="cccd" type="text" placeholder="CCCD">
+                <input
+                    id="cccd"
+                    type="text"
+                    placeholder="CCCD">
 
-<input id="sdt" type="text" placeholder="Số điện thoại">
+                <input
+                    id="sdt"
+                    type="text"
+                    placeholder="Số điện thoại">
 
-<select id="phong"></select>
+                <select id="phong">
 
-<input id="ngayNhan" type="date">
+                    <option value="">
+                        -- Chọn phòng trống --
+                    </option>
 
-<input id="ngayTra" type="date">
+                </select>
+
+                <input
+                    id="ngayNhan"
+                    type="date">
+
+                <input
+                    id="ngayTra"
+                    type="date">
+
             </div>
 
             <br>
-            
 
             <h3>Dịch vụ</h3>
 
-            <div id="dichVu">
+            <div id="dichVu" class="dichvu-list">
 
-                <label><input type="checkbox" value="DV001"> Ăn sáng</label>
-                <label><input type="checkbox" value="DV002"> Giặt ủi</label>
-                <label><input type="checkbox" value="DV003"> Spa</label>
-                <label><input type="checkbox" value="DV004"> Đưa đón sân bay</label>
-                <label><input type="checkbox" value="DV005"> Thuê xe</label>
-                <label><input type="checkbox" value="DV006"> Hồ bơi</label>
-                <label><input type="checkbox" value="DV007"> Gym</label>
+                <label>
+                    <input type="checkbox" value="DV001">
+                    Ăn sáng Buffet
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV002">
+                    Giặt ủi
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV003">
+                    Spa
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV004">
+                    Đưa đón sân bay
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV005">
+                    Thuê xe
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV006">
+                    Hồ bơi
+                </label>
+
+                <label>
+                    <input type="checkbox" value="DV007">
+                    Gym
+                </label>
 
             </div>
 
             <br>
 
-   <!-- Thêm khách -->
-         <button class="them" onclick="themKhach()">
-<i class="fa-solid fa-plus"></i>
-Thêm khách
-</button>
+            <button
+                class="btn them"
+                onclick="themKhach()">
+
+                <i class="fa-solid fa-plus"></i>
+                Thêm khách
+
+            </button>
+
         </section>
+
 
         <!-- Danh sách khách -->
         <section class="table-container">
@@ -169,7 +223,9 @@ Thêm khách
             <table>
 
                 <thead>
+
                     <tr>
+
                         <th>Mã KH</th>
                         <th>Họ tên</th>
                         <th>CCCD</th>
@@ -180,10 +236,14 @@ Thêm khách
                         <th>Trạng thái</th>
                         <th>Dịch vụ</th>
                         <th>Thao tác</th>
+
                     </tr>
+
                 </thead>
 
-                <tbody id="bangLeTan"></tbody>
+                <tbody id="bangLeTan">
+
+                </tbody>
 
             </table>
 

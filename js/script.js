@@ -8,6 +8,7 @@ const buttons = document.querySelectorAll(".trang-thai button");
 
 let currentFilter = "all";
 
+
 // =========================
 // Hàm lọc
 // =========================
@@ -107,3 +108,41 @@ rooms.forEach(room => {
 
 // Khởi tạo
 filterRooms();
+capNhatPhong();
+rooms.forEach(room=>{
+
+    const soPhong = room.querySelector("h3").textContent;
+
+    const phong = danhSachPhong.find(p=>p.so===soPhong);
+
+    if(!phong) return;
+
+    room.className = "room";
+
+    switch(phong.trangThai){
+
+        case "Trống":
+            room.classList.add("empty");
+            break;
+
+        case "Đã đặt":
+            room.classList.add("booked");
+            break;
+
+        case "Đang ở":
+            room.classList.add("using");
+            break;
+
+        case "Đang dọn":
+            room.classList.add("cleaning");
+            break;
+
+        case "Đang sửa":
+            room.classList.add("repair");
+            break;
+
+    }
+
+    room.querySelector("p").textContent = phong.trangThai;
+
+});

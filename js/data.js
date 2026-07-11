@@ -176,31 +176,46 @@ const danhSachDichVu = [
 
 
 
-// =========================
-// PHÒNG
-// =========================
+const phongMacDinh = [
 
-let danhSachPhong = [
+    {so:"101",trangThai:"Đang ở"},
+    {so:"102",trangThai:"Đang sửa"},
+    {so:"103",trangThai:"Trống"},
+    {so:"104",trangThai:"Đã đặt"},
+    {so:"105",trangThai:"Đang dọn"},
 
-    {so:"101",trangThai:"Đang sử dụng"},
-    {so:"104",trangThai:"Trống"},
-    {so:"201",trangThai:"Trống"},
-    {so:"205",trangThai:"Đang sử dụng"},
-    {so:"302",trangThai:"Đang sử dụng"},
-    {so:"303",trangThai:"Trống"},
-    {so:"403",trangThai:"Đang sử dụng"},
-    {so:"404",trangThai:"Trống"},
-    {so:"502",trangThai:"Trống"},
-    {so:"504",trangThai:"Đang sử dụng"}
+    {so:"201",trangThai:"Đã đặt"},
+    {so:"202",trangThai:"Trống"},
+    {so:"203",trangThai:"Đang dọn"},
+    {so:"204",trangThai:"Đang sửa"},
+    {so:"205",trangThai:"Đang ở"},
+
+    {so:"301",trangThai:"Đang sửa"},
+    {so:"302",trangThai:"Đang ở"},
+    {so:"303",trangThai:"Đã đặt"},
+    {so:"304",trangThai:"Trống"},
+    {so:"305",trangThai:"Đang dọn"},
+
+    {so:"401",trangThai:"Trống"},
+    {so:"402",trangThai:"Đang dọn"},
+    {so:"403",trangThai:"Đang ở"},
+    {so:"404",trangThai:"Đã đặt"},
+    {so:"405",trangThai:"Đang sửa"},
+
+    {so:"501",trangThai:"Đang dọn"},
+    {so:"502",trangThai:"Đã đặt"},
+    {so:"503",trangThai:"Trống"},
+    {so:"504",trangThai:"Đang ở"},
+    {so:"505",trangThai:"Đang sửa"}
 
 ];
 
+let danhSachPhong =
+JSON.parse(localStorage.getItem("danhSachPhong")) ||
+JSON.parse(JSON.stringify(phongMacDinh));
 
 
 
-// =========================
-// LƯU DỮ LIỆU
-// =========================
 
 function luuDuLieu(){
 
@@ -214,6 +229,11 @@ function luuDuLieu(){
         JSON.stringify(thungRacKhach)
     );
 
+    localStorage.setItem(
+        "danhSachPhong",
+        JSON.stringify(danhSachPhong)
+    );
+
 }
 
 
@@ -224,64 +244,53 @@ function luuDuLieu(){
 
 function taoMaKhach(){
 
-    return "KH" +
+    return "KL" +
     String(danhSachKhach.length+1)
     .padStart(3,"0");
 
 }
 
 
-
-// =========================
-// CẬP NHẬT PHÒNG
-// =========================
-
 function capNhatPhong(){
 
-    danhSachPhong.forEach(phong=>{
+    // Khôi phục trạng thái gốc
+    danhSachPhong = JSON.parse(JSON.stringify(phongMacDinh));
 
-        let coKhach =
-        danhSachKhach.some(kh=>
-            kh.phong==phong.so &&
-            kh.trangThai=="Đang ở"
-        );
+    danhSachKhach.forEach(kh=>{
 
+        const phong = danhSachPhong.find(p=>p.so===kh.phong);
 
-        phong.trangThai =
-        coKhach
-        ?
-        "Đang sử dụng"
-        :
-        "Trống";
+        if(!phong) return;
+
+        if(kh.trangThai=="Đã đặt"){
+
+            phong.trangThai="Đã đặt";
+
+        }
+
+        if(kh.trangThai=="Đang ở"){
+
+            phong.trangThai="Đang ở";
+
+        }
 
     });
 
+    localStorage.setItem(
+        "danhSachPhong",
+        JSON.stringify(danhSachPhong)
+    );
+
 }
-
-
-
-
-// =========================
-// KHÔI PHỤC DỮ LIỆU
-// =========================
 
 function khoiPhucDuLieu(){
 
-    if(confirm("Khôi phục dữ liệu ban đầu?")){
+    if(!confirm("Khôi phục dữ liệu ban đầu?")) return;
 
+    localStorage.removeItem("danhSachKhach");
+    localStorage.removeItem("danhSachPhong");
+    localStorage.removeItem("thungRacKhach");
 
-        danhSachKhach =
-        JSON.parse(JSON.stringify(duLieuMacDinh));
-
-
-        thungRacKhach=[];
-
-
-        luuDuLieu();
-
-
-        location.reload();
-
-    }
+    location.reload();
 
 }

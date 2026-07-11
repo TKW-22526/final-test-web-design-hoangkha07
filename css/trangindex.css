@@ -530,12 +530,10 @@ tbody tr:hover{
     margin:2px;
 }
 
-.nhan{
-    background:#198754;
-}
+
 
 .tra{
-    background:#ffc107;
+    background:#0749ff;
     color:#222;
 }
 
@@ -550,13 +548,15 @@ tbody tr:hover{
 }
 
 
-/* HÓA ĐƠN */
+.btn.hoadon{
+    background:#1dddff;
+    color:#fff;
+}
 
-#hoaDon{
-    margin-top:15px;
-    background:#f8f9fa;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:20px;
-    min-height:120px;
+.btn.hoadon:hover{
+    background:#0b5ed7;
+}
+
+.btn.hoadon i{
+    margin-right:5px;
 }
