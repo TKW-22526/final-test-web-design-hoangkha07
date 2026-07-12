@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aurora Hotel - Buồng phòng</title>
+
+    <link rel="stylesheet" href="../css/trangindex.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>Aurora Hotel</h2>
+
+        <ul>
+
+            <li>
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Sơ đồ phòng
+                </a>
+            </li>
+
+            <li>
+                <a href="khach-hang.html">
+                    <i class="fa-solid fa-user"></i>
+                    Khách hàng
+                </a>
+            </li>
+
+            <li>
+                <a href="dich-vu.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Dịch vụ
+                </a>
+            </li>
+
+            <li>
+                <a href="le-tan.html">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                    Lễ tân
+                </a>
+            </li>
+
+            <li>
+                <a href="buong-phong.html" class="active">
+                    <i class="fa-solid fa-bed"></i>
+                    Buồng phòng
+                </a>
+            </li>
+
+            <li>
+                <a href="thong-ke.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Thống kê
+                </a>
+            </li>
+
+            <li>
+                <a href="bao-cao.html">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Báo cáo
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main>
+
+        <header>
+
+            <h2>
+
+                <i class="fa-solid fa-bed"></i>
+
+                Quản lý buồng phòng
+
+            </h2>
+
+        </header>
+
+
+        <!-- Thống kê -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <h3>Đang ở</h3>
+
+                <p id="dangO">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Cần dọn</h3>
+
+                <p id="canDon">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Phòng trống</h3>
+
+                <p id="phongTrong">0</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Danh sách phòng -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-list"></i>
+
+                Danh sách phòng
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Phòng</th>
+
+                        <th>Trạng thái</th>
+
+                        <th>Khách</th>
+
+                        <th>Ngày nhận</th>
+
+                        <th>Ngày trả</th>
+
+                        <th>Thao tác</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="bangBuongPhong">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/data.js"></script>
+
+    <script src="../js/buong-phong.js"></script>
+
+</body>
+
+</html>

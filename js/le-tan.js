@@ -224,12 +224,23 @@ function traPhong(index){
 
     danhSachKhach[index].trangThai="Đã trả phòng";
 
-    capNhatPhong();
+    const phong =
+    danhSachPhong.find(
+        p=>p.so==danhSachKhach[index].phong
+    );
+
+    if(phong){
+
+        phong.trangThai="Đang dọn";
+
+    }
 
     luuDuLieu();
 
     hienThiPhong();
+
     hienThiKhach();
+
     thongKe();
 
 }

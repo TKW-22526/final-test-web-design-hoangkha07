@@ -250,23 +250,28 @@ function taoMaKhach(){
 
 }
 
-
 function capNhatPhong(){
 
-    // Khôi phục trạng thái gốc
-    danhSachPhong = JSON.parse(JSON.stringify(phongMacDinh));
+    danhSachPhong.forEach(phong=>{
+
+        // Không ghi đè phòng đang sửa hoặc đang dọn
+        if(
+            phong.trangThai!="Đang sửa" &&
+            phong.trangThai!="Đang dọn"
+        ){
+            phong.trangThai="Trống";
+        }
+
+    });
+
 
     danhSachKhach.forEach(kh=>{
 
-        const phong = danhSachPhong.find(p=>p.so===kh.phong);
+        const phong =
+        danhSachPhong.find(p=>p.so==kh.phong);
 
         if(!phong) return;
 
-        if(kh.trangThai=="Đã đặt"){
-
-            phong.trangThai="Đã đặt";
-
-        }
 
         if(kh.trangThai=="Đang ở"){
 
@@ -274,12 +279,16 @@ function capNhatPhong(){
 
         }
 
+        else if(kh.trangThai=="Đã đặt"){
+
+            phong.trangThai="Đã đặt";
+
+        }
+
     });
 
-    localStorage.setItem(
-        "danhSachPhong",
-        JSON.stringify(danhSachPhong)
-    );
+
+    luuDuLieu();
 
 }
 

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aurora Hotel - Báo cáo</title>
+
+    <link rel="stylesheet" href="../css/trangindex.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>Aurora Hotel</h2>
+
+        <ul>
+
+            <li>
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Sơ đồ phòng
+                </a>
+            </li>
+
+            <li>
+                <a href="khach-hang.html">
+                    <i class="fa-solid fa-user"></i>
+                    Khách hàng
+                </a>
+            </li>
+
+            <li>
+                <a href="dich-vu.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Dịch vụ
+                </a>
+            </li>
+
+            <li>
+                <a href="le-tan.html">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                    Lễ tân
+                </a>
+            </li>
+
+            <li>
+                <a href="buong-phong.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Buồng phòng
+                </a>
+            </li>
+
+            <li>
+                <a href="thong-ke.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Thống kê
+                </a>
+            </li>
+
+            <li>
+                <a class="active" href="bao-cao.html">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Báo cáo
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- Main -->
+
+    <main>
+
+        <header>
+
+            <h2>
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                Báo cáo tổng hợp khách sạn
+
+            </h2>
+
+            <div>
+
+                <button class="btn them" onclick="lamMoiBaoCao()">
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Làm mới
+
+                </button>
+
+                <button class="btn hoadon" onclick="xuatPDF()">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    Xuất PDF
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- Thời gian -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Thông tin báo cáo
+
+            </h2>
+
+            <p><b>Khách sạn:</b> Aurora Hotel</p>
+
+            <p><b>Ngày lập:</b> <span id="ngayLap"></span></p>
+
+            <p><b>Giờ lập:</b> <span id="gioLap"></span></p>
+
+        </section>
+
+
+
+        <!-- Tổng quan -->
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Tổng phòng</h3>
+                <p id="tongPhong">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Phòng trống</h3>
+                <p id="phongTrong">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Đang ở</h3>
+                <p id="dangO">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Đã đặt</h3>
+                <p id="daDat">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Đang dọn</h3>
+                <p id="dangDon">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Đang sửa</h3>
+                <p id="dangSua">0</p>
+            </div>
+
+        </section>
+
+
+
+        <!-- Khách -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-users"></i>
+
+                Báo cáo khách hàng
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Tổng khách</th>
+                        <th>Đang ở</th>
+                        <th>Đã đặt</th>
+                        <th>Đã trả phòng</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td id="tongKhach">0</td>
+                        <td id="khachDangO">0</td>
+                        <td id="khachDaDat">0</td>
+                        <td id="khachDaTra">0</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- Doanh thu -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                Báo cáo doanh thu
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Tiền phòng</th>
+                        <th>Tiền dịch vụ</th>
+                        <th>Tổng doanh thu</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td id="tienPhong">0 đ</td>
+                        <td id="tienDV">0 đ</td>
+                        <td id="tongTien">0 đ</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- Top dịch vụ -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-ranking-star"></i>
+
+                Top dịch vụ sử dụng
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Mã DV</th>
+                        <th>Tên dịch vụ</th>
+                        <th>Số lượt</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="topDichVu">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- Top khách -->
+
+        <section class="table-container">
+
+            <h2>
+
+                <i class="fa-solid fa-crown"></i>
+
+                Khách sử dụng nhiều dịch vụ
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Khách hàng</th>
+                        <th>Phòng</th>
+                        <th>Số dịch vụ</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="topKhach">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="../js/data.js"></script>
+
+    <script src="../js/bao-cao.js"></script>
+
+</body>
+
+</html>

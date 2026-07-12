@@ -560,3 +560,709 @@ tbody tr:hover{
 .btn.hoadon i{
     margin-right:5px;
 }
+/* ===========================
+   BUỒNG PHÒNG
+=========================== */
+
+.table-container{
+
+    overflow-x:auto;
+
+}
+
+.table-container table{
+
+    width:100%;
+
+    min-width:900px;
+
+}
+
+.status{
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+.status.trong{
+
+    background:#28a745;
+
+}
+
+.status.dat{
+
+    background:#0d6efd;
+
+}
+
+.status.dango{
+
+    background:#dc3545;
+
+}
+
+.status.dangdon{
+
+    background:#f39c12;
+
+}
+
+.status.sua{
+
+    background:#6c757d;
+
+}
+/* ===========================
+   BUỒNG PHÒNG BUTTON
+=========================== */
+
+.btn-nhan{
+
+    background:linear-gradient(135deg,#0d6efd,#4dabff);
+
+    color:#fff;
+
+    border:none;
+
+    padding:9px 18px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 4px 10px rgba(13,110,253,.35);
+
+}
+
+.btn-nhan:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(13,110,253,.45);
+
+}
+
+.btn-don{
+
+    background:linear-gradient(135deg,#28a745,#57d785);
+
+    color:#fff;
+
+    border:none;
+
+    padding:9px 18px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 4px 10px rgba(40,167,69,.35);
+
+}
+
+.btn-don:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(40,167,69,.45);
+
+}
+
+.btn-nhan i,
+.btn-don i{
+
+    margin-right:6px;
+
+}
+/* =========================
+   BIỂU ĐỒ THỐNG KÊ
+========================= */
+
+#bieuDo{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:flex-end;
+
+    height:320px;
+
+    margin-top:30px;
+
+}
+
+.bar{
+
+    width:120px;
+
+    text-align:center;
+
+}
+
+.bar span{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+.cot{
+
+    height:230px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+}
+
+.cot div{
+
+    width:70px;
+
+    border-radius:10px 10px 0 0;
+
+    transition:.5s;
+
+    animation:lenCot 1s;
+
+}
+
+/* Màu từng cột */
+
+#barTrong{
+
+    background:#2ecc71;
+
+}
+
+#barDangO{
+
+    background:#e74c3c;
+
+}
+
+#barDaDat{
+
+    background:#3498db;
+
+}
+
+#barDangDon{
+
+    background:#f39c12;
+
+}
+
+#barDangSua{
+
+    background:#7f8c8d;
+
+}
+
+@keyframes lenCot{
+
+    from{
+
+        height:0;
+
+    }
+
+}
+/* ===========================
+   THỐNG KÊ
+=========================== */
+
+/* Card */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+.card h3{
+    color:#666;
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:30px;
+    font-weight:bold;
+    color:#0d6efd;
+}
+
+
+/* Khung */
+
+.table-container{
+    background:#fff;
+    padding:20px;
+    margin-top:20px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.table-container h2{
+    color:#243b55;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+
+/* Bảng */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+thead{
+    background:#0d6efd;
+    color:#fff;
+}
+
+th{
+    padding:12px;
+    font-size:15px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fbff;
+}
+
+tbody tr:hover{
+    background:#e9f3ff;
+}
+
+
+/* ===================
+   BIỂU ĐỒ
+=================== */
+
+#bieuDo{
+    display:flex;
+    justify-content:space-around;
+    align-items:flex-end;
+    height:250px;
+    margin-top:20px;
+}
+
+.bar{
+    width:80px;
+    text-align:center;
+}
+
+.bar span{
+    display:block;
+    margin-bottom:10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.cot{
+    height:160px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.cot div{
+    width:45px;
+    border-radius:8px 8px 0 0;
+    transition:.5s;
+    position:relative;
+    animation:lenCot .8s ease;
+}
+
+.cot div::after{
+    content:attr(data-value);
+    position:absolute;
+    top:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:15px;
+    font-weight:bold;
+    color:#222;
+}
+
+
+/* Màu */
+
+#barTrong{background:#2ecc71;}
+#barDangO{background:#e74c3c;}
+#barDaDat{background:#3498db;}
+#barDangDon{background:#f39c12;}
+#barDangSua{background:#7f8c8d;}
+
+@keyframes lenCot{
+    from{
+        height:0;
+    }
+}
+
+
+/* Icon */
+
+.table-container h2 i{
+    color:#0d6efd;
+    margin-right:8px;
+}
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    #bieuDo{
+        flex-wrap:wrap;
+        height:auto;
+        gap:20px;
+    }
+
+}   
+/* ===========================
+   BÁO CÁO
+=========================== */
+
+/* Header */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+header h2{
+    font-size:30px;
+    color:#243b55;
+}
+
+header h2 i{
+    color:#0d6efd;
+    margin-right:8px;
+}
+
+
+/* Nút */
+
+header .btn{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    margin-left:8px;
+    transition:.3s;
+}
+
+header .btn:hover{
+    transform:translateY(-3px);
+}
+
+.them{
+    background:#0d6efd;
+}
+
+.tra{
+    background:#16a34a;
+}
+
+.hoadon{
+    background:#dc3545;
+}
+
+
+/* Card */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin:20px 0;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    color:#666;
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:30px;
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+
+/* Khung */
+
+.table-container{
+    background:#fff;
+    padding:22px;
+    border-radius:12px;
+    margin-top:22px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.table-container h2{
+    color:#243b55;
+    margin-bottom:18px;
+    font-size:25px;
+}
+
+.table-container h2 i{
+    color:#0d6efd;
+    margin-right:8px;
+}
+
+.table-container p{
+    margin:8px 0;
+    font-size:16px;
+}
+
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+thead{
+    background:#0d6efd;
+    color:#fff;
+}
+
+th{
+    padding:12px;
+    font-size:15px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+    font-size:15px;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fbff;
+}
+
+tbody tr:hover{
+    background:#edf5ff;
+}
+
+
+/* Doanh thu */
+
+#tongTien{
+    color:#dc3545;
+    font-weight:bold;
+    font-size:20px;
+}
+
+#tienPhong,
+#tienDV{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+
+/* Hiệu ứng */
+
+.table-container,
+.card{
+    animation:fadeIn .5s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* In */
+
+@media print{
+
+    .sidebar,
+    header button{
+        display:none;
+    }
+
+    body{
+        background:#fff;
+    }
+
+    main{
+        width:100%;
+        padding:0;
+    }
+
+    .table-container,
+    .card{
+        box-shadow:none;
+    }
+
+}
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    table{
+        font-size:13px;
+    }
+
+}
+.cards .card p{
+
+    margin-top:12px;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    line-height:1;
+
+    color:#0d6efd;
+
+}#tienPhong,
+#tienDV,
+#tongTien{
+
+    font-size:32px !important;
+
+    font-weight:bold;
+
+}
+.header{
+    background:linear-gradient(135deg,#0d6efd,#4da3ff);
+    padding:35px;
+    color:white;
+    border-radius:0 0 20px 20px;
+}
+
+.logo h1{
+    font-size:32px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo h2{
+    font-size:18px;
+    margin-top:10px;
+    opacity:.9;
+}
+
+.date{
+    font-size:16px;
+}
+
+
+.title{
+    font-size:24px;
+    color:#0d6efd;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border-left:6px solid #0d6efd;
+    padding-left:12px;
+}
