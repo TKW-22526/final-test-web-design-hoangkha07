@@ -37,7 +37,15 @@ function hienThiPhong(){
     });
 
 }
+function dinhDangNgay(ngay){
 
+    if(!ngay) return "";
+
+    const [nam, thang, ngayTrongThang] = ngay.split("-");
+
+    return `${ngayTrongThang}/${thang}/${nam}`;
+
+}
 // =====================================
 // THÊM KHÁCH
 // =====================================
@@ -87,9 +95,9 @@ function themKhach(){
 
         phong:phong,
 
-        ngayNhan:ngayNhan,
+       ngayNhan:dinhDangNgay(ngayNhan),
 
-        ngayTra:ngayTra,
+ngayTra:dinhDangNgay(ngayTra),
 
         trangThai:"Đã đặt",
 
