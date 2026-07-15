@@ -1232,37 +1232,3 @@ tbody tr:hover{
     font-weight:bold;
 
 }
-.header{
-    background:linear-gradient(135deg,#0d6efd,#4da3ff);
-    padding:35px;
-    color:white;
-    border-radius:0 0 20px 20px;
-}
-
-.logo h1{
-    font-size:32px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.logo h2{
-    font-size:18px;
-    margin-top:10px;
-    opacity:.9;
-}
-
-.date{
-    font-size:16px;
-}
-
-
-.title{
-    font-size:24px;
-    color:#0d6efd;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    border-left:6px solid #0d6efd;
-    padding-left:12px;
-}
