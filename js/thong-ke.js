@@ -64,28 +64,49 @@ function thongKeKhach(){
 // =====================================
 // DOANH THU
 // =====================================
+function chuyenNgay(str){
 
+    if(!str) return null;
+
+    const [ngay, thang, nam] = str.split("/");
+
+    return new Date(nam, thang - 1, ngay);
+
+}
 function thongKeDoanhThu(){
 
-    const giaPhong = 360000;
+    const giaPhongMotNgay = 360000;
 
     let tienPhong = 0;
     let tienDV = 0;
 
     danhSachKhach.forEach(kh=>{
 
-        // Chỉ tính khách đã trả phòng
         if(kh.trangThai !== "Đã trả phòng") return;
 
-        // Tiền phòng
-        tienPhong += giaPhong;
+        const ngayNhan = chuyenNgay(kh.ngayNhan);
+        const ngayTra = chuyenNgay(kh.ngayTra);
 
-        // Tiền dịch vụ
+        let soNgay = Math.ceil(
+            (ngayTra - ngayNhan) /
+            (1000 * 60 * 60 * 24)
+        );
+
+        if(isNaN(soNgay) || soNgay <= 0){
+
+            soNgay = 1;
+
+        }
+
+        tienPhong += giaPhongMotNgay * soNgay;
+
         if(kh.dichVu){
 
             kh.dichVu.forEach(ma=>{
 
-                const dv = danhSachDichVu.find(d=>d.ma===ma);
+                const dv = danhSachDichVu.find(
+                    d => d.ma === ma
+                );
 
                 if(dv){
 

@@ -154,13 +154,29 @@ function nhanPhong(soPhong) {
 // ĐÃ DỌN
 // =====================================
 
-function daDon(soPhong) {
+function daDon(soPhong){
 
-    const phong = danhSachPhong.find(p => p.so === soPhong);
+    const phong = danhSachPhong.find(
+        p=>p.so==soPhong
+    );
 
-    if (!phong) return;
+    if(!phong) return;
 
-    phong.trangThai = "Trống";
+
+    phong.trangThai="Trống";
+
+
+    const kh = danhSachKhach.find(
+        k=>k.phong==soPhong && k.trangThai=="Đã trả phòng"
+    );
+
+
+    if(kh){
+
+        kh.trangThai="Đã hoàn tất";
+
+    }
+
 
     luuDuLieu();
 

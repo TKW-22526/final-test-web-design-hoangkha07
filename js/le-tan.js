@@ -230,20 +230,27 @@ function nhanPhong(index){
 
 function traPhong(index){
 
-    danhSachKhach[index].trangThai="Đã trả phòng";
+    const kh = danhSachKhach[index];
 
-    const phong =
-    danhSachPhong.find(
-        p=>p.so==danhSachKhach[index].phong
+    // đổi trạng thái khách
+    kh.trangThai = "Đã trả phòng";
+
+
+    // đổi trạng thái phòng
+    const phong = danhSachPhong.find(
+        p => p.so == kh.phong
     );
 
     if(phong){
 
-        phong.trangThai="Đang dọn";
+        phong.trangThai = "Đang dọn";
 
     }
 
+
+    // lưu dữ liệu
     luuDuLieu();
+
 
     hienThiPhong();
 
@@ -299,7 +306,29 @@ function inHoaDon(index){
 
     const kh = danhSachKhach[index];
 
-    const giaPhong = 360000;
+    const giaPhongMotNgay = 360000;
+
+// Chuyển chuỗi dd/mm/yyyy thành Date
+function chuyenNgay(str){
+    const [ngay, thang, nam] = str.split("/");
+    return new Date(nam, thang - 1, ngay);
+}
+
+const ngayNhan = chuyenNgay(kh.ngayNhan);
+const ngayTra = chuyenNgay(kh.ngayTra);
+
+// Số ngày ở
+let soNgay = Math.ceil(
+    (ngayTra - ngayNhan) / (1000 * 60 * 60 * 24)
+);
+
+// Nếu chưa có ngày trả hoặc <=0 thì tính 1 ngày
+if(isNaN(soNgay) || soNgay <= 0){
+    soNgay = 1;
+}
+
+// Tiền phòng
+const giaPhong = giaPhongMotNgay * soNgay;
 
     let tienDV = 0;
     let htmlDV = "";
@@ -591,13 +620,17 @@ ${htmlDV}
 
 <tr>
 
-<td><b>Tiền phòng</b></td>
+<td>
+
+<b>Tiền phòng (${soNgay} ngày × ${giaPhongMotNgay.toLocaleString()} đ)</b>
+
+</td>
 
 <td style="text-align:right">
 
 ${giaPhong.toLocaleString()} đ
-
 </td>
+
 
 </tr>
 

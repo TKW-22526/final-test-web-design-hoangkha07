@@ -253,33 +253,35 @@ function taoMaKhach(){
 
 function capNhatPhong(){
 
-    // Khôi phục trạng thái gốc
-    danhSachPhong = JSON.parse(JSON.stringify(phongMacDinh));
-
     danhSachKhach.forEach(kh=>{
 
-        const phong = danhSachPhong.find(p=>p.so===kh.phong);
+        const phong = danhSachPhong.find(
+            p => p.so === kh.phong
+        );
 
         if(!phong) return;
+
 
         if(kh.trangThai=="Đã đặt"){
 
             phong.trangThai="Đã đặt";
 
         }
-
-        if(kh.trangThai=="Đang ở"){
+        else if(kh.trangThai=="Đang ở"){
 
             phong.trangThai="Đang ở";
+
+        }
+        else if(kh.trangThai=="Đã trả phòng"){
+
+            phong.trangThai="Đang dọn";
 
         }
 
     });
 
-    localStorage.setItem(
-        "danhSachPhong",
-        JSON.stringify(danhSachPhong)
-    );
+
+    luuDuLieu();
 
 }
 
