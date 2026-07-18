@@ -244,12 +244,21 @@ function luuDuLieu(){
 
 function taoMaKhach(){
 
-    return "KL" +
-    String(danhSachKhach.length+1)
-    .padStart(3,"0");
+    let max = 0;
+
+    danhSachKhach.forEach(kh=>{
+
+        const so = parseInt(kh.ma.replace("KL",""));
+
+        if(so > max){
+            max = so;
+        }
+
+    });
+
+    return "KL" + String(max + 1).padStart(3,"0");
 
 }
-
 
 function capNhatPhong(){
 
